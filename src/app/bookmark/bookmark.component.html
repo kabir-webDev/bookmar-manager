@@ -8,8 +8,10 @@
 
     <div class="flex justify-between px-20 pt-20">
     <div class=" w-2/5">
-        <app-bookmark-list [bookmarkList]="newList"></app-bookmark-list>
-        <app-bookmark-list [bookmarkList]="newList"></app-bookmark-list>
+        <app-bookmark-list [bookmarkList]="newList" [category]="'Category A'"></app-bookmark-list>
+        <app-bookmark-list [bookmarkList]="newList" [category]="'Category B'"></app-bookmark-list>
+        <app-bookmark-list [bookmarkList]="newList" [category]="'Category C'"></app-bookmark-list>
+        <app-bookmark-list [bookmarkList]="newList" [category]="'Category D'"></app-bookmark-list>
     </div>
     <div class="details__section w-2/5">
         <h1 *ngIf="params" class="text-xl font-[500] text-center">Details Section</h1>

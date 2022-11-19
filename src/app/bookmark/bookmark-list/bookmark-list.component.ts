@@ -8,7 +8,7 @@ import { bookmarktList } from '../bookmark.model';
   styleUrls: ['./bookmark-list.component.scss'],
 })
 export class BookmarkListComponent implements OnInit {
-  category: string = 'Category A';
+  @Input()category: string = '';
   params:string='';
   @Input() bookmarkList:bookmarktList[]=[];
   constructor(
