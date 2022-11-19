@@ -1,0 +1,11 @@
+<div class="mb-8 w-full">
+  <h2 class="text-lg">
+    {{ category }}
+  </h2>
+  <div class="bg-[#F8F9F9] border-2 border-gray-500 p-5 rounded-md mt-2  max-h-48 overflow-y-auto" >
+    <div class="flex justify-between py-2" *ngFor="let list of bookmarkList">
+    <p class="hover:text-blue-400"><a [href]="list.url" target="_blank">{{list.title}}</a> </p>
+    <button mat-raised-button [routerLink]="'/'+list.id">Details</button>
+</div>
+  </div>
+</div>

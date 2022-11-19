@@ -1,0 +1,25 @@
+
+<div class="bg-[#DDE9FF] min-h-[100vh] pt-16">
+    <div class="flex justify-center gap-32">
+        <div></div>
+        <h2 class="text-4xl text-gray-600">Bookmark Manager</h2>
+        <button mat-raised-button  color="primary" (click)="openDialog()">Add Bookmark</button>
+    </div>
+
+    <div class="flex justify-between px-20 pt-20">
+    <div class=" w-2/5">
+        <app-bookmark-list [bookmarkList]="newList"></app-bookmark-list>
+        <app-bookmark-list [bookmarkList]="newList"></app-bookmark-list>
+    </div>
+    <div class="details__section w-2/5">
+        <h1 *ngIf="params" class="text-xl font-[500] text-center">Details Section</h1>
+        <div  *ngIf="!params">
+            <h1 class="text-xl font-[500] text-center">Details Section</h1>
+            <h1 class="mt-10 text-center border-2 border-gray-500 p-5 rounded-md">
+            Click on details button to see details of a catagory
+        </h1>
+    </div>
+        <app-bookmark-details *ngIf="params"></app-bookmark-details>
+    </div>
+</div>
+</div>

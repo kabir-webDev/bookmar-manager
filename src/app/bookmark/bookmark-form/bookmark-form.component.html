@@ -1,0 +1,82 @@
+<div >
+  <form [formGroup]="attachBookmark">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label class="">Title </mat-label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        formControlName="title"
+        matInput
+        placeholder="Enter Title"
+      />
+      <mat-error *ngIf="!attachBookmark.get('title')?.valid">
+        This field is required!
+    </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label class="">Url </mat-label>
+      <input
+        type="text"
+        autocomplete="off"
+        required
+        formControlName="url"
+        matInput
+        placeholder="Enter URL"
+      />
+      <mat-error *ngIf="!attachBookmark.get('url')?.valid">
+        Please enter a valid URL!
+    </mat-error>
+    </mat-form-field>
+    <div class="flex gap-10">
+      <mat-form-field  class="w-full" appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category" name="category" [disabled]="showAddCategoryInput">
+          <mat-option *ngFor="let item of catagoryList" [value]="item.category">
+            {{ item.category }}
+          </mat-option>
+        </mat-select>
+
+      <mat-error *ngIf="!attachBookmark.get('category')?.valid">
+        This field is required!
+    </mat-error>
+      </mat-form-field>
+
+      <button class="border-2 border-gray-400 rounded-md px-5 h-14" (click)="openAddCategoryInput()">
+        <span class="text-3xl text-gray-500">+</span>
+      </button>
+    </div>
+  </form>
+<div class="flex gap-10" *ngIf="showAddCategoryInput" >
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label class="">Category </mat-label>
+    <input
+      type="text"
+      autocomplete="off"
+      required
+      [(ngModel)]="newCategory"
+      matInput
+      placeholder="Enter new Category"
+    />
+  </mat-form-field>
+  <button class="h-14" mat-raised-button  color="primary" (click)="addCategory()">
+  Add
+  </button>
+
+</div>
+  <div class="flex justify-between mt-16">
+    <button matRipple class="py-3 px-14 bg-orange-200 rounded-md border-2 border-gray-400 hover:bg-orange-300 cursor-pointer" [mat-dialog-close]="true">
+      Cancel
+    </button>
+
+    <button
+    button matRipple class="py-3 px-14 bg-green-200 rounded-md border-2 border-gray-400 hover:bg-green-300 cursor-pointer"
+      type="submit"
+      [disabled]="!attachBookmark.valid"
+      (click)="attachBookmarkFormData()"
+    >
+      Save
+    </button>
+  </div>
+</div>
